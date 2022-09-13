@@ -1,4 +1,7 @@
 @import "./base/reset";
+@import "./base/animation";
 @import "./base/global";
+@import "./components/nav";
 @import "./components/notes";
-@import "./components/singleNote"
+@import "./components/singleNote";
+@import "./components/addNotes";

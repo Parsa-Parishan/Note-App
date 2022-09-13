@@ -122,13 +122,393 @@ h4 {
   }
 }
 
+@-webkit-keyframes customEnterOverlayAnimation {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes customEnterOverlayAnimation {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes customLeaveOverlayAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes customLeaveOverlayAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes customEnterModalAnimation {
+  0% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes customEnterModalAnimation {
+  0% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes customLeaveModalAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+}
+
+@keyframes customLeaveModalAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    display: none;
+    opacity: 0;
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  1% {
+    display: grid;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes show {
+  0% {
+    display: none;
+    opacity: 0;
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  1% {
+    display: -ms-grid;
+    display: grid;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+.App {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background-color: #414a45;
+  color: white;
+}
+
+.appear-enter {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.appear-enter-active {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
+.appear-exit {
+  opacity: 1;
+}
+
+.appear-exit-active {
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, -webkit-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
+}
+
 .note-container {
-  border: 1px solid;
   margin: 0.5rem;
+  width: 90%;
   padding: 0.5rem 1rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.note {
+  border-radius: 15px 5px 5px 5px;
+  background: #f4ebd0;
+  height: 100px;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+.note h3 {
+  background-color: #414a45;
+  border-radius: 10px 2px 2px 2px;
+  padding: 0.1rem 0.25rem;
+}
+
+.note p {
+  padding-left: 0.25rem;
+  font-size: 0.75rem;
+  height: 65%;
+  overflow: hidden;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-height: 1.75;
+}
+
+.modal {
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.5);
+  inset: 0;
+  display: none;
+  place-items: center;
+  opacity: 1;
+}
+
+.modal .body {
+  width: 75%;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .modal .body {
+    width: 750px;
+  }
+}
+
+.modal .body h2 {
+  color: white;
+  background: #414a45;
+  padding: 2px 0 15px 10px;
+}
+
+.modal .body form input.title {
+  width: 100%;
+  padding: 2px 0 15px 10px;
+  font-size: 40px;
+  font-weight: 700;
+  height: 65px;
+  background: #414a45;
+}
+
+.modal .body form textarea.body {
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  padding: 7.5px 5px;
+  background-color: #f4ebd0;
+  min-height: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.modal .body form .submit {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.modal .body p {
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  padding: 7.5px 5px;
+  background-color: #f4ebd0;
+  min-height: 220px;
+}
+
+.modal .body .icons {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.modal .body .icons * + * {
+  margin-left: 0.5rem;
+}
+
+.modal .body .icons * {
+  color: #65393a;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.modal .body .icons *:hover {
+  color: red;
+}
+
+.modal .body .dlt-btn {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  background: #414a45;
+  color: white;
+}
+
+.modal .body .dlt-btn:active {
+  background-color: #f4ebd0;
+  color: black;
+}
+
+.show {
+  display: -ms-grid !important;
+  display: grid !important;
+  -webkit-animation: show 0.5s ease;
+          animation: show 0.5s ease;
+}
+
+.add-note {
+  width: 75vw;
+  background-color: #b68d40;
+}
+
+@media (min-width: 1024px) {
+  .add-note {
+    width: 750px;
+  }
+}
+
+.add-note h3 {
+  color: white;
+  background: #414a45;
+  padding: 2px 3px 15px 3px;
+}
+
+.add-note form {
+  display: -ms-grid;
+  display: grid;
+  gap: 0.5rem;
+  margin-block: calc(0.5rem + 15px);
+}
+
+.add-note form input,
+.add-note form textarea {
+  width: 100%;
+  border-radius: 5px;
+  padding: 7.5px 5px;
+  background-color: #f4ebd0;
+  border: 1px solid lightgray;
+}
+
+.add-note form textarea {
+  min-height: 220px;
+}
+
+.add-note form .submit {
+  border: none;
+  background: #65393a;
+  color: white;
+  -webkit-box-shadow: 0px 2px 2px 0 black;
+          box-shadow: 0px 2px 2px 0 black;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.add-note form .submit:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.react-responsive-modal-modal {
+  background-color: #b68d40 !important;
 }
 /*# sourceMappingURL=main.css.map */

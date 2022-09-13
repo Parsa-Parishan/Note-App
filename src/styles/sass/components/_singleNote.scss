@@ -1,0 +1,107 @@
+.note {
+  border-radius: 15px 5px 5px 5px;
+  background: #f4ebd0;
+  height: 100px;
+  transition: all 1s linear;
+  h3 {
+    background-color: #414a45;
+    border-radius: 10px 2px 2px 2px;
+    padding: 0.1rem 0.25rem;
+  }
+  p {
+    padding-left: 0.25rem;
+    font-size: 0.75rem;
+    height: 65%;
+    overflow: hidden;
+    max-height: 8rem;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-height: 1.75;
+  }
+}
+.modal {
+  position: fixed;
+  background-color: rgba(gray, 0.5);
+  inset: 0;
+  display: none;
+  place-items: center;
+  opacity: 1;
+  .body {
+    width: 75%;
+    position: relative;
+    @media (min-width: 1024px) {
+      width: 750px;
+    }
+    h2 {
+      color: white;
+      background: #414a45;
+      padding: 2px 0 15px 10px;
+    }
+    form {
+      input.title {
+        width: 100%;
+        padding: 2px 0 15px 10px;
+        font-size: 40px;
+        font-weight: 700;
+        height: 65px;
+        background: #414a45;
+      }
+      textarea.body {
+        width: 100%;
+        border-radius: 0 0 5px 5px;
+        padding: 7.5px 5px;
+        background-color: #f4ebd0;
+        min-height: 220px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .submit {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+      }
+    }
+    p {
+      width: 100%;
+      border-radius: 0 0 5px 5px;
+      padding: 7.5px 5px;
+      background-color: #f4ebd0;
+      min-height: 220px;
+    }
+    .icons {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      * + * {
+        margin-left: 0.5rem;
+      }
+      * {
+        color: #65393a;
+        font-size: 1.3rem;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+    .dlt-btn {
+      position: absolute;
+      right: 1px;
+      bottom: 1px;
+      background: #414a45;
+      color: white;
+      &:active {
+        background-color: #f4ebd0;
+        color: black;
+      }
+    }
+  }
+}
+
+.show {
+  display: grid !important;
+  animation: show 0.5s ease;
+}
