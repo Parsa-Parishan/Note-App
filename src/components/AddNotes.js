@@ -33,8 +33,8 @@ export default function AddNotes({ openClose }) {
             type="text"
             placeholder="Title"
             id="title"
-            // pattern="[a-zA-Z]"
-            // dir="ltr"
+            required="required"
+            dir="ltr"
             // onKeyPress={validate}
           />
         </div>
