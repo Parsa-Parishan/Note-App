@@ -1,31 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Notes from "./components/Notes";
-import { FaPencilAlt } from "react-icons/fa";
+import AddNotes from "./components/AddNotes";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
+import Nav from "./components/Nav";
+import AddNoteContext from "./context/AddNoteContext";
 
 function App() {
-  const [note, setNote] = useState([
-    {
-      a: 1,
-      b: "Developers frequently use localStorage for adding a dark mode feature to an application, saving a to-do item, or persisting a user's form input values, among many other scenarios.",
-    },
-  ]);
+  const [note, setNote] = useState([]);
+  const [active, setActive] = useState(false);
+  const [transition, setTransition] = useState(false);
+  const modal = useRef(null);
 
-  const addNote = (e) => {
-    setNote((note) => [e, ...note]);
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(note));
+  }, [note]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("notes"));
+    if (items) {
+      setNote(items);
+    }
+  }, []);
+
+  const openClose = () => {
+    setActive(!active);
+  };
+
+  const handleTransition = () => {
+    setTransition(!transition);
   };
 
   return (
     <div className="App">
-      <FaPencilAlt
-        onClick={() =>
-          addNote({
-            a: 3,
-            b: "Developers frequently use localStorage for adding a dark mode feature to an application, saving a to-do item, or persisting a user's form input values, among many other scenarios.",
-          })
-        }
-      />
-      <h1>Note App</h1>
-      <Notes note={note} />
+      <AddNoteContext>
+        <Nav func={openClose} />
+        <Modal
+          open={active}
+          onClose={openClose}
+          center
+          classNames={{
+            overlayAnimationIn: "customEnterOverlayAnimation",
+            overlayAnimationOut: "customLeaveOverlayAnimation",
+            modalAnimationIn: "customEnterModalAnimation",
+            modalAnimationOut: "customLeaveModalAnimation",
+          }}
+          animationDuration={800}
+          initialFocusRef={modal}
+          closeIcon={" "}
+        >
+          <AddNotes openClose={openClose} />
+        </Modal>
+
+        <div className="note-container">
+          <Notes />
+        </div>
+      </AddNoteContext>
     </div>
   );
 }
