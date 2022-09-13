@@ -26,13 +26,14 @@ export default function Notes() {
       : (document.body.style.overflow = "auto");
   }
 
-  const editNote = () => {
-    setEdit(!edit);
-  };
-
   const handleId = (e) => {
     setId(() => e);
     console.log(id);
+  };
+
+  const editNote = (e) => {
+    setEdit(!edit);
+    handleId(e);
   };
 
   const handleSubmit = (e) => {
@@ -87,7 +88,9 @@ export default function Notes() {
                         type="text"
                         defaultValue={e.title}
                         className="title"
-                        onChange={() => handleId(e.id)}
+                        required="required"
+                        dir="ltr"
+                        style={{ fontSize: "1.5rem" }}
                       />
                       <textarea
                         defaultValue={e.body}
