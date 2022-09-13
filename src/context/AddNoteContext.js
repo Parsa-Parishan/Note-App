@@ -4,6 +4,7 @@ const NoteContext = React.createContext();
 const RemoveContext = React.createContext();
 const AddContext = React.createContext();
 const EditContext = React.createContext();
+const AppearContext = React.createContext();
 
 export function useNote() {
   return useContext(NoteContext);
@@ -17,13 +18,26 @@ export function useRemove() {
 export function useEdit() {
   return useContext(EditContext);
 }
+export function useAppear() {
+  return useContext(AppearContext);
+}
 
 export default function AddNoteContext({ children }) {
   const [note, setNote] = useState([]);
+  const [appear, setAppear] = useState(false);
 
   const addNote = (e) => {
-    setNote(() => [e, ...note]);
-    console.log(note);
+    setAppear(() => true);
+    if (appear) {
+      setTimeout(() => {
+        setNote(() => [e, ...note]);
+      }, 500);
+    } else {
+      setTimeout(() => {
+        setNote(() => [e, ...note]);
+      }, 2000);
+    }
+    // setNote(() => [e, ...note]);
   };
 
   const removeNote = (e) => {
@@ -43,12 +57,16 @@ export default function AddNoteContext({ children }) {
   };
 
   return (
-    <NoteContext.Provider value={note}>
-      <AddContext.Provider value={addNote}>
-        <RemoveContext.Provider value={removeNote}>
-          <EditContext.Provider value={toEdit}>{children}</EditContext.Provider>
-        </RemoveContext.Provider>
-      </AddContext.Provider>
-    </NoteContext.Provider>
+    <AppearContext.Provider value={appear}>
+      <NoteContext.Provider value={note}>
+        <AddContext.Provider value={addNote}>
+          <RemoveContext.Provider value={removeNote}>
+            <EditContext.Provider value={toEdit}>
+              {children}
+            </EditContext.Provider>
+          </RemoveContext.Provider>
+        </AddContext.Provider>
+      </NoteContext.Provider>
+    </AppearContext.Provider>
   );
 }
