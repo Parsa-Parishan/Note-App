@@ -1,14 +1,24 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 1rem 0.5rem;
   background-color: #414a45;
   color: white;
   position: fixed;
-  height: 200%;
-  width: 120%;
+  height: 110%;
+  width: 300%;
   border-radius: 50%;
+  top: -5%;
+  div + div {
+    margin-left: 2rem;
+  }
+  .add {
+    font-size: 1.5rem;
+    &:hover {
+      box-shadow: 0 2px 5px 2px black;
+    }
+  }
 }
 
 // .appear-enter {
@@ -30,7 +40,7 @@
 // }
 
 .appear {
-  animation: nav 5s ease-in;
+  animation: nav 3s ease-in;
   height: initial;
   width: 100%;
   border-radius: 0;

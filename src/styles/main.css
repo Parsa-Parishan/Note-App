@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=IM+Fell+Great+Primer:ital@0;1&family=Nothing+You+Could+Do&family=Roboto:wght@100&family=Rock+Salt&family=Shadows+Into+Light&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Whisper&display=swap");
 *,
 *::before,
 *::after {
@@ -335,8 +336,7 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid;
-  min-height: 100vh;
+  font-family: "Rock Salt", cursive;
 }
 
 .nav {
@@ -346,20 +346,35 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 1rem 0.5rem;
   background-color: #414a45;
   color: white;
   position: fixed;
-  height: 200%;
-  width: 120%;
+  height: 110%;
+  width: 300%;
   border-radius: 50%;
+  top: -5%;
+}
+
+.nav div + div {
+  margin-left: 2rem;
+}
+
+.nav .add {
+  font-size: 1.5rem;
+}
+
+.nav .add:hover {
+  -webkit-box-shadow: 0 2px 5px 2px black;
+          box-shadow: 0 2px 5px 2px black;
 }
 
 .appear {
-  -webkit-animation: nav 5s ease-in;
-          animation: nav 5s ease-in;
+  -webkit-animation: nav 3s ease-in;
+          animation: nav 3s ease-in;
   height: initial;
   width: 100%;
   border-radius: 0;
@@ -378,6 +393,7 @@ h4 {
   -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1.5rem;
+  margin-top: 56px;
 }
 
 .note {
@@ -499,6 +515,7 @@ h4 {
   bottom: 1px;
   background: #414a45;
   color: white;
+  font-family: 'Roboto', sans-serif;
 }
 
 .modal .body .dlt-btn:active {
@@ -528,6 +545,7 @@ h4 {
   color: white;
   background: #414a45;
   padding: 2px 3px 15px 3px;
+  font-family: "Roboto", sans-serif;
 }
 
 .add-note form {
@@ -535,6 +553,7 @@ h4 {
   display: grid;
   gap: 0.5rem;
   margin-block: calc(0.5rem + 15px);
+  font-family: "Roboto", sans-serif;
 }
 
 .add-note form input,

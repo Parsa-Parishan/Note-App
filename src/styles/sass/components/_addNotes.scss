@@ -8,11 +8,13 @@
     color: white;
     background: #414a45;
     padding: 2px 3px 15px 3px;
+    font-family: "Roboto", sans-serif;
   }
   form {
     display: grid;
     gap: 0.5rem;
     margin-block: calc(0.5rem + 15px);
+    font-family: "Roboto", sans-serif;
     input,
     textarea {
       width: 100%;

@@ -8,7 +8,7 @@ export default function Nav({ func }) {
     <div className={`nav ${appear && "appear"}`}>
       <div>My Notes</div>
       <div>
-        <FaRegPlusSquare onClick={() => func()} style={{ cursor: "pointer" }} />
+        <FaRegPlusSquare onClick={() => func()} style={{ cursor: "pointer" }}  className="add"/>
       </div>
     </div>
   );
