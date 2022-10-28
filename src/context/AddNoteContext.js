@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 const NoteContext = React.createContext();
 const RemoveContext = React.createContext();
@@ -55,6 +55,18 @@ export default function AddNoteContext({ children }) {
     note[note.indexOf(wanted)].body = b;
     setNote(() => note);
   };
+
+  useEffect(() => {
+    localStorage.setItem("Notes", JSON.stringify(note));
+  }, [note]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("Notes"));
+    if (data) {
+      console.log(data)
+      setNote(() => data);
+    }
+  }, []);
 
   return (
     <AppearContext.Provider value={appear}>
