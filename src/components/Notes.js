@@ -14,10 +14,11 @@ export default function Notes() {
   const handleModal = (e) => {
     if (document.querySelector(`.${e}`).className == `modal ${e}`) {
       document.querySelector(`.${e}`).className = `modal ${e} show`;
+      setShow(true);
     } else {
       document.querySelector(`.${e}`).className = `modal ${e}`;
+      setShow(false);
     }
-    setShow(true);
   };
 
   {
